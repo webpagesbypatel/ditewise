@@ -1,3 +1,4 @@
+
 "use client"
 
 import * as React from "react"
@@ -10,7 +11,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
-import { Sheet, SheetContent } from "@/components/ui/sheet"
+import { Sheet, SheetContent as SheetPrimitiveContent } from "@/components/ui/sheet" // Renamed to avoid conflict
 import { Skeleton } from "@/components/ui/skeleton"
 import {
   Tooltip,
@@ -195,7 +196,7 @@ const Sidebar = React.forwardRef<
     if (isMobile) {
       return (
         <Sheet open={openMobile} onOpenChange={setOpenMobile} {...props}>
-          <SheetContent
+          <SheetPrimitiveContent
             data-sidebar="sidebar"
             data-mobile="true"
             className="w-[--sidebar-width] bg-sidebar p-0 text-sidebar-foreground [&>button]:hidden"
@@ -207,7 +208,7 @@ const Sidebar = React.forwardRef<
             side={side}
           >
             <div className="flex h-full w-full flex-col">{children}</div>
-          </SheetContent>
+          </SheetPrimitiveContent>
         </Sheet>
       )
     }
@@ -397,10 +398,11 @@ SidebarSeparator.displayName = "SidebarSeparator"
 
 const SidebarContent = React.forwardRef<
   HTMLDivElement,
-  React.ComponentProps<"div">
->(({ className, ...props }, ref) => {
+  React.HTMLAttributes<HTMLDivElement> & { asChild?: boolean }
+>(({ className, asChild = false, ...props }, ref) => {
+  const Comp = asChild ? Slot : "div";
   return (
-    <div
+    <Comp
       ref={ref}
       data-sidebar="content"
       className={cn(
@@ -409,8 +411,8 @@ const SidebarContent = React.forwardRef<
       )}
       {...props}
     />
-  )
-})
+  );
+});
 SidebarContent.displayName = "SidebarContent"
 
 const SidebarGroup = React.forwardRef<
@@ -761,3 +763,4 @@ export {
   SidebarTrigger,
   useSidebar,
 }
+

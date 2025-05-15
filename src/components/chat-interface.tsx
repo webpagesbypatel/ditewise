@@ -9,7 +9,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Send, Bot, User } from "lucide-react";
 import type { ChatMessage } from "@/types";
 import { aiChatbotAssistantAction } from "@/lib/actions";
-import { useToast } from "./ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 
 // Placeholder, fetch from user context/state
 const userProfileForChat = "User is interested in low-carb vegetarian meals. Has a mild nut allergy.";
