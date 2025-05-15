@@ -6,6 +6,7 @@ import { Apple, Flame, Soup } from "lucide-react"; // Example icons
 
 interface MealCardProps {
   meal: {
+    id: string; // Added id to meal object for key prop
     name: string;
     description: string;
     imageUrl: string;

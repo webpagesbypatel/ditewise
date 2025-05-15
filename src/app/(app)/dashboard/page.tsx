@@ -5,14 +5,14 @@ import { Activity, Apple, BarChart3, Heart, MessageCircle, NotebookText, Target,
 import Image from "next/image";
 
 const QuickActionCard = ({ title, description, href, icon: Icon }: { title: string, description: string, href: string, icon: React.ElementType }) => (
-  <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
+  <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300 group">
     <CardHeader className="flex flex-row items-center justify-between pb-2">
       <CardTitle className="text-lg font-medium">{title}</CardTitle>
       <Icon className="h-6 w-6 text-muted-foreground" />
     </CardHeader>
     <CardContent>
       <p className="text-sm text-muted-foreground mb-4">{description}</p>
-      <Button asChild variant="default" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+      <Button asChild variant="default" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground group-hover:animate-pulse-glow focus:animate-pulse-glow">
         <Link href={href}>Go to {title}</Link>
       </Button>
     </CardContent>
@@ -52,7 +52,7 @@ export default function DashboardPage() {
             or explore our resources to learn more about nutrition.
           </p>
           <Image 
-            src="https://placehold.co/600x400.png" 
+            src="https://placehold.co/250x160.png" 
             alt="Healthy food illustration" 
             width={250} 
             height={160} 
@@ -87,13 +87,13 @@ export default function DashboardPage() {
       </section>
 
       <section className="grid md:grid-cols-2 gap-6">
-        <Card className="shadow-lg">
+        <Card className="shadow-lg group">
           <CardHeader>
             <CardTitle className="text-xl">AI Chat Assistant</CardTitle>
             <CardDescription>Have questions about your diet or nutrition? Ask our AI assistant.</CardDescription>
           </CardHeader>
           <CardContent>
-            <Button asChild className="w-full">
+            <Button asChild className="w-full group-hover:animate-pulse-glow focus:animate-pulse-glow">
               <Link href="/chat"><MessageCircle className="mr-2 h-4 w-4" /> Start Chatting</Link>
             </Button>
           </CardContent>

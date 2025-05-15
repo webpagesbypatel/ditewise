@@ -41,7 +41,7 @@ export default function ArticleDetailPage({ params }: { params: { articleId: str
               width={800}
               height={400}
               className="w-full h-64 object-cover rounded-t-lg"
-              data-ai-hint={article.category}
+              data-ai-hint={article.aiHint}
             />
           </CardHeader>
         )}

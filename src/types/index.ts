@@ -48,6 +48,7 @@ export interface Article {
   imageUrl?: string;
   category: string;
   content?: string; // Full content for detail view
+  aiHint: string; // Added for concise image search keywords
 }
 
 export interface CommunityPost {

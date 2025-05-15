@@ -18,7 +18,7 @@ function PostCard({ post }: { post: CommunityPost }) {
       <CardHeader>
         <div className="flex items-center gap-3 mb-2">
           <Avatar className="h-10 w-10">
-            <AvatarImage src={`https://placehold.co/100x100.png?text=${post.author.substring(0,1)}`} alt={post.author} data-ai-hint="avatar person"/>
+            <AvatarImage src={`https://placehold.co/100x100.png`} alt={post.author} data-ai-hint="avatar person"/>
             <AvatarFallback>{post.author.substring(0,2).toUpperCase()}</AvatarFallback>
           </Avatar>
           <div>

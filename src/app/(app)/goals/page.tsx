@@ -107,7 +107,7 @@ export default function GoalsPage() {
             Set, track, and achieve your dietary and wellness objectives.
             </p>
         </div>
-        <Button onClick={openAddNewDialog}>
+        <Button onClick={openAddNewDialog} className="hover:animate-pulse-glow focus:animate-pulse-glow">
           <PlusCircle className="mr-2 h-5 w-5" /> Add New Goal
         </Button>
       </header>
@@ -126,7 +126,7 @@ export default function GoalsPage() {
                 <CardDescription>Start your wellness journey by setting your first goal.</CardDescription>
             </CardHeader>
             <CardContent>
-                <Button onClick={openAddNewDialog}>
+                <Button onClick={openAddNewDialog} className="hover:animate-pulse-glow focus:animate-pulse-glow">
                     <PlusCircle className="mr-2 h-5 w-5" /> Set Your First Goal
                 </Button>
             </CardContent>

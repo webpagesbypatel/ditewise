@@ -61,7 +61,7 @@ export default function MealPlannerPage() {
       </div>
       
       {/* Placeholder for Smart Ingredient Swapper integration, or link to standalone page */}
-      <Card className="shadow-lg">
+      <Card className="shadow-lg group">
           <CardHeader>
             <CardTitle>Quick Ingredient Swap</CardTitle>
             <CardDescription>
@@ -69,7 +69,7 @@ export default function MealPlannerPage() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-             <Button variant="outline" asChild className="w-full">
+             <Button variant="outline" asChild className="w-full group-hover:animate-pulse-glow focus:animate-pulse-glow">
               <a href="/ingredient-swapper">Go to Ingredient Swapper</a>
             </Button>
           </CardContent>

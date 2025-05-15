@@ -21,7 +21,7 @@ export function ArticleCard({ article }: ArticleCardProps) {
             width={400}
             height={200}
             className="w-full h-48 object-cover"
-            data-ai-hint={article.category}
+            data-ai-hint={article.aiHint}
           />
         </CardHeader>
       )}
@@ -41,8 +41,8 @@ export function ArticleCard({ article }: ArticleCardProps) {
 
 // Placeholder data for demonstration
 export const placeholderArticles: Article[] = [
-  { id: "1", title: "Understanding Type 2 Diabetes", summary: "Learn about the causes, symptoms, and management of Type 2 Diabetes through diet and lifestyle.", imageUrl: "https://placehold.co/400x200.png", category: "Chronic Diseases" },
-  { id: "2", title: "The Power of Protein", summary: "Discover the importance of protein in your diet for muscle health, satiety, and overall wellness.", imageUrl: "https://placehold.co/400x200.png", category: "Nutrition Basics" },
-  { id: "3", title: "Healthy Snacking Ideas", summary: "Find delicious and nutritious snack ideas to keep you energized between meals.", imageUrl: "https://placehold.co/400x200.png", category: "Healthy Eating" },
-  { id: "4", title: "Mindful Eating Techniques", summary: "Explore how mindful eating can improve your relationship with food and aid digestion.", imageUrl: "https://placehold.co/400x200.png", category: "Wellness" },
+  { id: "1", title: "Understanding Type 2 Diabetes", summary: "Learn about the causes, symptoms, and management of Type 2 Diabetes through diet and lifestyle.", imageUrl: "https://placehold.co/400x200.png", category: "Chronic Diseases", aiHint: "health medical" },
+  { id: "2", title: "The Power of Protein", summary: "Discover the importance of protein in your diet for muscle health, satiety, and overall wellness.", imageUrl: "https://placehold.co/400x200.png", category: "Nutrition Basics", aiHint: "protein food" },
+  { id: "3", title: "Healthy Snacking Ideas", summary: "Find delicious and nutritious snack ideas to keep you energized between meals.", imageUrl: "https://placehold.co/400x200.png", category: "Healthy Eating", aiHint: "healthy snacks" },
+  { id: "4", title: "Mindful Eating Techniques", summary: "Explore how mindful eating can improve your relationship with food and aid digestion.", imageUrl: "https://placehold.co/400x200.png", category: "Wellness", aiHint: "mindful meditation" },
 ];

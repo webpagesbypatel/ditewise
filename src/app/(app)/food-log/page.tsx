@@ -116,7 +116,11 @@ export default function FoodLogPage() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <Button onClick={handleAnalyzeFoodLog} disabled={isAnalyzing || loggedMeals.length === 0} className="w-full">
+            <Button 
+              onClick={handleAnalyzeFoodLog} 
+              disabled={isAnalyzing || loggedMeals.length === 0} 
+              className="w-full hover:animate-pulse-glow focus:animate-pulse-glow"
+            >
               {isAnalyzing ? "Analyzing..." : "Analyze My Food Log"}
             </Button>
             {analysisResult && (

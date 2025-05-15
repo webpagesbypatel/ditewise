@@ -122,7 +122,7 @@ export function ProfileForm() {
                 )}
               />
             ))}
-            <Button type="submit" disabled={isLoading} className="w-full">
+            <Button type="submit" disabled={isLoading} className="w-full hover:animate-pulse-glow focus:animate-pulse-glow">
               {isLoading ? "Generating Plan..." : "Save Profile & Generate Diet Plan"}
             </Button>
           </form>
