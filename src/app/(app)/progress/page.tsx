@@ -27,12 +27,12 @@ export default function ProgressPage() {
           </p>
         </div>
         <Image 
-            src="https://placehold.co/200x130.png" 
-            alt="Upward trend graph" 
+            src="https://static1.bigstockphoto.com/0/8/3/large1500/380468176.jpg"
+            alt="Fitness and health progress concept"
             width={200} 
             height={130} 
             className="rounded-lg object-cover shadow-md"
-            data-ai-hint="progress chart"
+            data-ai-hint="fitness health"
         />
       </header>
 

@@ -21,6 +21,12 @@ const nextConfig: NextConfig = {
         hostname: 'source.unsplash.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'static1.bigstockphoto.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
