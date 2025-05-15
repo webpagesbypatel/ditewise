@@ -28,7 +28,7 @@ function AppLogo() {
   return (
     <Link href="/dashboard" className="flex items-center gap-2 px-2">
       <AppIcon className="h-7 w-7 text-primary" />
-      {state === 'expanded' && <h1 className="text-xl font-semibold text-primary">{APP_NAME}</h1>}
+      {state === 'expanded' && <h1 className="text-xl font-semibold text-sidebar-foreground">{APP_NAME}</h1>}
     </Link>
   )
 }
