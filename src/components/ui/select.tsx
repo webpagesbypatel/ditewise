@@ -23,6 +23,7 @@ const SelectTrigger = React.forwardRef<
       className
     )}
     {...props}
+    suppressHydrationWarning={true}
   >
     {children}
     <SelectPrimitive.Icon asChild>
