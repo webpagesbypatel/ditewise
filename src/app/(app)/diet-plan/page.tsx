@@ -1,0 +1,91 @@
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { MealCard, placeholderMeals } from "@/components/meal-card"; // Placeholder meals for now
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Lightbulb } from "lucide-react";
+
+// This would typically come from user state / context or a fetch call after profile completion
+const userDietPlan = {
+  dietaryRecommendations: "Focus on whole grains, lean proteins, and plenty of vegetables. Limit processed foods and sugary drinks. Ensure adequate hydration by drinking at least 8 glasses of water per day.",
+  macroNutrientTargets: "Protein: 100g, Carbohydrates: 200g, Fats: 60g. Total Calories: ~1800 kcal.",
+  foodSuggestions: "Breakfast: Oatmeal with berries and nuts. Lunch: Grilled chicken salad with mixed greens. Dinner: Baked salmon with roasted vegetables. Snacks: Greek yogurt, almonds, apple slices.",
+};
+
+export default function DietPlanPage() {
+  // In a real app, check if a plan exists. If not, prompt to create profile.
+  const hasPlan = true; // Placeholder
+
+  if (!hasPlan) {
+    return (
+      <div className="flex flex-col items-center justify-center h-full text-center">
+        <Card className="max-w-md p-8">
+          <CardHeader>
+            <CardTitle>No Diet Plan Found</CardTitle>
+            <CardDescription>
+              Please complete your profile to generate a personalized diet plan.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Button asChild>
+              <Link href="/profile">Go to Profile</Link>
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-8">
+      <header className="space-y-2">
+        <h1 className="text-3xl font-bold tracking-tight">Your Personalized Diet Plan</h1>
+        <p className="text-muted-foreground">
+          Here are your AI-generated dietary recommendations and meal suggestions based on your profile.
+        </p>
+      </header>
+
+      <Card className="shadow-xl bg-card/70">
+        <CardHeader>
+          <CardTitle>AI Generated Recommendations</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          <div>
+            <h3 className="font-semibold text-lg text-primary">Dietary Recommendations</h3>
+            <p className="text-muted-foreground whitespace-pre-wrap">{userDietPlan.dietaryRecommendations}</p>
+          </div>
+          <div>
+            <h3 className="font-semibold text-lg text-primary">Macro Nutrient Targets</h3>
+            <p className="text-muted-foreground whitespace-pre-wrap">{userDietPlan.macroNutrientTargets}</p>
+          </div>
+          <div>
+            <h3 className="font-semibold text-lg text-primary">General Food Suggestions</h3>
+            <p className="text-muted-foreground whitespace-pre-wrap">{userDietPlan.foodSuggestions}</p>
+          </div>
+        </CardContent>
+      </Card>
+
+      <Alert>
+        <Lightbulb className="h-4 w-4" />
+        <AlertTitle>Tip from DietWise AI!</AlertTitle>
+        <AlertDescription>
+          Remember to adjust portion sizes based on your activity level and hunger. For more specific meal ideas, check out the suggestions below or use the Meal Planner.
+        </AlertDescription>
+      </Alert>
+      
+      <section>
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-2xl font-semibold">Meal Ideas</h2>
+          <Button variant="outline" asChild>
+            <Link href="/meal-planner">Advanced Meal Planner</Link>
+          </Button>
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {placeholderMeals.map(meal => (
+            <MealCard key={meal.id} meal={meal} />
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}
