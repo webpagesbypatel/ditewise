@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation"
 import { NAV_ITEMS_MAIN, NAV_ITEMS_TOOLS, APP_NAME } from "@/lib/constants"
 import Link from "next/link"
 import { ChevronRight } from "lucide-react"
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils" // Added this line
 
 const findLabel = (pathname: string) => {
   const allNavItems = [...NAV_ITEMS_MAIN, ...NAV_ITEMS_TOOLS];
