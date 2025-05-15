@@ -1,6 +1,8 @@
+
 import { ProgressChart } from "@/components/progress-chart";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, TrendingUp, Activity } from "lucide-react";
+import Image from "next/image";
 
 // Placeholder summary data
 const progressSummary = {
@@ -17,11 +19,21 @@ const progressSummary = {
 export default function ProgressPage() {
   return (
     <div className="space-y-8">
-      <header>
-        <h1 className="text-3xl font-bold tracking-tight">Your Progress</h1>
-        <p className="text-muted-foreground">
-          Visualize your journey towards your health and dietary goals.
-        </p>
+      <header className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-6 p-4 bg-card/50 rounded-lg shadow-md">
+        <div className="space-y-2 flex-1">
+          <h1 className="text-3xl font-bold tracking-tight">Your Progress</h1>
+          <p className="text-muted-foreground">
+            Visualize your journey towards your health and dietary goals.
+          </p>
+        </div>
+        <Image 
+            src="https://placehold.co/200x130.png" 
+            alt="Upward trend graph" 
+            width={200} 
+            height={130} 
+            className="rounded-lg object-cover shadow-md"
+            data-ai-hint="progress chart"
+        />
       </header>
 
       <Card className="shadow-xl bg-card/70">
@@ -63,3 +75,4 @@ export default function ProgressPage() {
     </div>
   );
 }
+

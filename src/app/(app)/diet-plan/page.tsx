@@ -1,9 +1,11 @@
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { MealCard, placeholderMeals } from "@/components/meal-card"; // Placeholder meals for now
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Lightbulb } from "lucide-react";
+import { Lightbulb, NotebookText } from "lucide-react";
+import Image from "next/image";
 
 // This would typically come from user state / context or a fetch call after profile completion
 const userDietPlan = {
@@ -19,14 +21,22 @@ export default function DietPlanPage() {
   if (!hasPlan) {
     return (
       <div className="flex flex-col items-center justify-center h-full text-center">
-        <Card className="max-w-md p-8">
+        <Card className="max-w-md p-8 shadow-xl">
           <CardHeader>
             <CardTitle>No Diet Plan Found</CardTitle>
             <CardDescription>
               Please complete your profile to generate a personalized diet plan.
             </CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="flex flex-col items-center gap-4">
+            <Image 
+              src="https://placehold.co/300x200.png" 
+              alt="Illustration of a person thinking about a diet plan" 
+              width={300} 
+              height={200} 
+              className="rounded-lg object-cover shadow-sm mb-4"
+              data-ai-hint="planning thinking"
+            />
             <Button asChild>
               <Link href="/profile">Go to Profile</Link>
             </Button>
@@ -38,11 +48,21 @@ export default function DietPlanPage() {
 
   return (
     <div className="space-y-8">
-      <header className="space-y-2">
-        <h1 className="text-3xl font-bold tracking-tight">Your Personalized Diet Plan</h1>
-        <p className="text-muted-foreground">
-          Here are your AI-generated dietary recommendations and meal suggestions based on your profile.
-        </p>
+      <header className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-6 p-4 bg-card/50 rounded-lg shadow-md">
+        <div className="space-y-2 flex-1">
+            <h1 className="text-3xl font-bold tracking-tight flex items-center gap-2"><NotebookText className="text-primary h-8 w-8"/>Your Personalized Diet Plan</h1>
+            <p className="text-muted-foreground">
+            Here are your AI-generated dietary recommendations and meal suggestions based on your profile.
+            </p>
+        </div>
+        <Image 
+            src="https://placehold.co/200x130.png" 
+            alt="Healthy foods collage" 
+            width={200} 
+            height={130} 
+            className="rounded-lg object-cover shadow-md"
+            data-ai-hint="healthy diet"
+        />
       </header>
 
       <Card className="shadow-xl bg-card/70">
@@ -89,3 +109,4 @@ export default function DietPlanPage() {
     </div>
   );
 }
+

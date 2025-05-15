@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState } from "react";
@@ -10,6 +11,7 @@ import { Label } from "@/components/ui/label";
 import { PlusCircle, Target } from "lucide-react";
 import type { Goal } from "@/types";
 import { useToast } from "@/hooks/use-toast";
+import Image from "next/image";
 
 
 const initialGoals: Goal[] = [
@@ -107,7 +109,7 @@ export default function GoalsPage() {
             Set, track, and achieve your dietary and wellness objectives.
             </p>
         </div>
-        <Button onClick={openAddNewDialog} className="hover:animate-pulse-glow focus:animate-pulse-glow">
+        <Button onClick={openAddNewDialog} className="group-hover:animate-pulse-glow focus:animate-pulse-glow">
           <PlusCircle className="mr-2 h-5 w-5" /> Add New Goal
         </Button>
       </header>
@@ -125,8 +127,16 @@ export default function GoalsPage() {
                 <CardTitle>No Goals Yet!</CardTitle>
                 <CardDescription>Start your wellness journey by setting your first goal.</CardDescription>
             </CardHeader>
-            <CardContent>
-                <Button onClick={openAddNewDialog} className="hover:animate-pulse-glow focus:animate-pulse-glow">
+            <CardContent className="flex flex-col items-center gap-4">
+                <Image 
+                    src="https://placehold.co/300x200.png" 
+                    alt="Achieving goals illustration" 
+                    width={300} 
+                    height={200} 
+                    className="rounded-lg object-cover shadow-sm mb-4"
+                    data-ai-hint="target goal"
+                />
+                <Button onClick={openAddNewDialog} className="group-hover:animate-pulse-glow focus:animate-pulse-glow">
                     <PlusCircle className="mr-2 h-5 w-5" /> Set Your First Goal
                 </Button>
             </CardContent>
@@ -168,3 +178,4 @@ export default function GoalsPage() {
     </div>
   );
 }
+

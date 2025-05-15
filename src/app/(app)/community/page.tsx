@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -5,6 +6,7 @@ import { MessageSquare, ThumbsUp, Users, PlusCircle } from "lucide-react";
 import Link from "next/link";
 import type { CommunityPost } from "@/types";
 import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
 
 const placeholderPosts: CommunityPost[] = [
   { id: "1", title: "My Favorite Low-Carb Recipes!", author: "Alice B.", timestamp: new Date(Date.now() - 86400000 * 1), content: "Just wanted to share some of my go-to low-carb recipes that have helped me a lot. Hope you enjoy them!", upvotes: 25, commentsCount: 5 },
@@ -61,7 +63,7 @@ export default function CommunityPage() {
         </Button>
       </header>
       
-      <div className="flex gap-2">
+      <div className="flex gap-2 flex-wrap">
         <Badge variant="default">All Posts</Badge>
         <Badge variant="outline">Recipes</Badge>
         <Badge variant="outline">Support</Badge>
@@ -81,7 +83,15 @@ export default function CommunityPage() {
                 <CardTitle>The Community is Quiet</CardTitle>
                 <CardDescription>Be the first to share your thoughts or ask a question!</CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex flex-col items-center gap-4">
+                <Image 
+                    src="https://placehold.co/400x250.png" 
+                    alt="Community discussion illustration" 
+                    width={400} 
+                    height={250} 
+                    className="rounded-lg object-cover shadow-sm mb-4"
+                    data-ai-hint="community forum"
+                />
                 <Button disabled>
                     <PlusCircle className="mr-2 h-5 w-5" /> Start a Discussion (Coming Soon)
                 </Button>
@@ -92,3 +102,4 @@ export default function CommunityPage() {
     </div>
   );
 }
+
