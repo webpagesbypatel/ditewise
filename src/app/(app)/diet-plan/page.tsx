@@ -56,12 +56,12 @@ export default function DietPlanPage() {
             </p>
         </div>
         <Image 
-            src="https://placehold.co/200x130.png" 
-            alt="Healthy foods collage" 
+            src="https://source.unsplash.com/MlPD-AzZYMg/200x130" 
+            alt="Bowl of vegetable salad with walnuts" 
             width={200} 
             height={130} 
             className="rounded-lg object-cover shadow-md"
-            data-ai-hint="healthy diet"
+            data-ai-hint="salad healthy"
         />
       </header>
 
@@ -109,4 +109,3 @@ export default function DietPlanPage() {
     </div>
   );
 }
-
