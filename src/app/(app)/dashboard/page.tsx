@@ -52,12 +52,12 @@ export default function DashboardPage() {
             or explore our resources to learn more about nutrition.
           </p>
           <Image 
-            src="https://placehold.co/250x160.png" 
-            alt="Healthy food illustration" 
+            src="https://source.unsplash.com/--9CjvlbUGhY/250x160" 
+            alt="Person eating a healthy salad" 
             width={250} 
             height={160} 
             className="rounded-lg object-cover shadow-md"
-            data-ai-hint="healthy food" 
+            data-ai-hint="eating salad" 
           />
         </CardContent>
       </Card>
