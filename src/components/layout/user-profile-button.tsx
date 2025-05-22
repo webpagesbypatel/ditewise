@@ -23,7 +23,7 @@ export function UserProfileButton() {
   const user = {
     name: "User Name",
     email: "user@example.com",
-    avatarUrl: "https://placehold.co/100x100.png", 
+    avatarUrl: "https://images.unsplash.com/photo-1640951613773-54706e06851d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx1c2VyJTIwYW5pbWF0ZWR8ZW58MHx8fHwxNzQ3OTA3MDUxfDA&ixlib=rb-4.1.0&q=80&w=100", 
   }
   const initials = user.name
     .split(" ")
