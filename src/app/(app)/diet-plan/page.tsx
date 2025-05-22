@@ -56,7 +56,7 @@ export default function DietPlanPage() {
             </p>
         </div>
         <Image 
-            src="https://source.unsplash.com/MlPD-AzZYMg/200x130" 
+            src="https://images.unsplash.com/photo-1514540746696-d285708190bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxib3dsJTIwb2YlMjB2ZWdpdGFibGUlMjBzYWxhZCUyMHdpdGglMjB3YWxudXRzfGVufDB8fHx8MTc0NzkwNjY2OHww&ixlib=rb-4.1.0&q=80&w=200" 
             alt="Bowl of vegetable salad with walnuts" 
             width={200} 
             height={130} 
