@@ -52,7 +52,7 @@ export default function DashboardPage() {
             or explore our resources to learn more about nutrition.
           </p>
           <Image 
-            src="https://source.unsplash.com/--9CjvlbUGhY/250x160" 
+            src="https://images.unsplash.com/photo-1532054241088-402b4150db33?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxNHx8ZGlldCUyMGltYWdlc3xlbnwwfHx8fDE3NDc5MDY0NDR8MA&ixlib=rb-4.1.0&q=80&w=250" 
             alt="Person eating a healthy salad" 
             width={250} 
             height={160} 
