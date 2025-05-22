@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CalendarDays, UtensilsCrossed, ShoppingCart } from "lucide-react";
@@ -22,7 +23,7 @@ export default function MealPlannerPage() {
         </CardHeader>
         <CardContent className="text-center">
           <Image 
-            src="https://placehold.co/600x300.png" 
+            src="https://images.unsplash.com/photo-1611302457661-d24c21494f2a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxXZWVrbHklMjBNZWFsJTIwQ2FsZW5kYXJ8ZW58MHx8fHwxNzQ3OTA2OTYwfDA&ixlib=rb-4.1.0&q=80&w=600" 
             alt="Meal calendar placeholder" 
             width={600} 
             height={300} 
