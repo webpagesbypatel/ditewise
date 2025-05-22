@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState, useRef, useEffect, FormEvent } from "react";
@@ -6,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Send, Bot, User } from "lucide-react";
+import { Send, Brain, User } from "lucide-react"; // Changed Bot to Brain
 import type { ChatMessage } from "@/types";
 import { aiChatbotAssistantAction } from "@/lib/actions";
 import { useToast } from "@/hooks/use-toast";
@@ -78,7 +79,7 @@ export function ChatInterface() {
   return (
     <Card className="w-full max-w-2xl mx-auto shadow-2xl h-[70vh] flex flex-col">
       <CardHeader>
-        <CardTitle className="flex items-center gap-2"><Bot className="text-primary"/> DietWise AI Assistant</CardTitle>
+        <CardTitle className="flex items-center gap-2"><Brain className="text-primary"/> DietWise AI Assistant</CardTitle> {/* Changed Bot to Brain */}
       </CardHeader>
       <CardContent className="flex-grow overflow-hidden p-0">
         <ScrollArea className="h-full p-4" ref={scrollAreaRef}>
@@ -92,7 +93,7 @@ export function ChatInterface() {
               >
                 {message.sender === "ai" && (
                   <Avatar className="h-8 w-8">
-                    <AvatarFallback><Bot size={18}/></AvatarFallback>
+                    <AvatarFallback><Brain size={18}/></AvatarFallback> {/* Changed Bot to Brain */}
                   </Avatar>
                 )}
                 <div
@@ -114,7 +115,7 @@ export function ChatInterface() {
             {isLoading && (
                  <div className="flex items-end gap-2">
                     <Avatar className="h-8 w-8">
-                        <AvatarFallback><Bot size={18}/></AvatarFallback>
+                        <AvatarFallback><Brain size={18}/></AvatarFallback> {/* Changed Bot to Brain */}
                     </Avatar>
                     <div className="max-w-[70%] rounded-lg px-4 py-2 text-sm bg-muted animate-pulse">
                         Thinking...
