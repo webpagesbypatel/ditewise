@@ -14,7 +14,7 @@ export default function IngredientSwapperPage() {
           </p>
         </div>
         <Image 
-            src="https://images.unsplash.com/photo-1506368249639-73a05d6f6488?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHwlMjBpbmdyZWRpZW50cyUyMHxlbnwwfHx8fDE3NDc5MDcxOTZ8MA&ixlib=rb-4.1.0&q=80&w=180"
+            src="https://images.unsplash.com/photo-1506368249639-73a05d6f6488?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxpbmdyZWRpZW50c3xlbnwwfHx8fDE3NDc5MDcyNTF8MA&ixlib=rb-4.1.0&q=80&w=180"
             alt="Assortment of kitchen ingredients" 
             width={180} 
             height={120} 
