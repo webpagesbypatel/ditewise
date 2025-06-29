@@ -1,13 +1,11 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { MealCard, placeholderMeals } from "@/components/meal-card"; // Placeholder meals for now
+import { EnhancedMealCard, enhancedPlaceholderMeals } from "@/components/enhanced-meal-card";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Lightbulb, NotebookText } from "lucide-react";
 import Image from "next/image";
 
-// This would typically come from user state / context or a fetch call after profile completion
 const userDietPlan = {
   dietaryRecommendations: "Focus on whole grains, lean proteins, and plenty of vegetables. Limit processed foods and sugary drinks. Ensure adequate hydration by drinking at least 8 glasses of water per day.",
   macroNutrientTargets: "Protein: 100g, Carbohydrates: 200g, Fats: 60g. Total Calories: ~1800 kcal.",
@@ -15,8 +13,7 @@ const userDietPlan = {
 };
 
 export default function DietPlanPage() {
-  // In a real app, check if a plan exists. If not, prompt to create profile.
-  const hasPlan = true; // Placeholder
+  const hasPlan = true;
 
   if (!hasPlan) {
     return (
@@ -47,10 +44,10 @@ export default function DietPlanPage() {
   }
 
   return (
-    <div className="space-y-8">
+    <div className="responsive-spacing">
       <header className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-6 p-4 bg-card/50 rounded-lg shadow-md">
         <div className="space-y-2 flex-1">
-            <h1 className="text-3xl font-bold tracking-tight flex items-center gap-2"><NotebookText className="text-primary h-8 w-8"/>Your Personalized Diet Plan</h1>
+            <h1 className="responsive-heading flex items-center gap-2"><NotebookText className="text-primary h-8 w-8"/>Your Personalized Diet Plan</h1>
             <p className="text-muted-foreground">
             Here are your AI-generated dietary recommendations and meal suggestions based on your profile.
             </p>
@@ -69,7 +66,7 @@ export default function DietPlanPage() {
         <CardHeader>
           <CardTitle>AI Generated Recommendations</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6">
+        <CardContent className="responsive-spacing">
           <div>
             <h3 className="font-semibold text-lg text-primary">Dietary Recommendations</h3>
             <p className="text-muted-foreground whitespace-pre-wrap">{userDietPlan.dietaryRecommendations}</p>
@@ -100,9 +97,9 @@ export default function DietPlanPage() {
             <Link href="/meal-planner">Advanced Meal Planner</Link>
           </Button>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {placeholderMeals.map(meal => (
-            <MealCard key={meal.id} meal={meal} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          {enhancedPlaceholderMeals.map((meal, index) => (
+            <EnhancedMealCard key={meal.id} meal={meal} index={index} />
           ))}
         </div>
       </section>
