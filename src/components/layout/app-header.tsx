@@ -5,7 +5,7 @@ import { SidebarTrigger } from "@/components/ui/sidebar"
 import { usePathname } from "next/navigation"
 import { NAV_ITEMS_MAIN, NAV_ITEMS_TOOLS, APP_NAME } from "@/lib/constants"
 import Link from "next/link"
-import { ChevronRight } from "lucide-react"
+import { ChevronRight, Menu } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const findLabel = (pathname: string) => {
@@ -27,9 +27,24 @@ export function AppHeader() {
 
   return (
     <header className="sticky top-0 z-30 flex h-14 sm:h-16 items-center gap-3 sm:gap-4 border-b border-gray-200 bg-white/90 backdrop-blur-sm px-4 sm:px-6 shadow-sm">
-      {/* Mobile hamburger menu */}
+      {/* Enhanced Mobile hamburger menu */}
       <div className="lg:hidden">
-        <SidebarTrigger className="hover:bg-primary/10 transition-colors duration-300 h-9 w-9" />
+        <SidebarTrigger className="relative group hover:bg-primary/10 active:bg-primary/20 transition-all duration-300 h-11 w-11 rounded-xl border border-primary/20 shadow-sm hover:shadow-md bg-gradient-to-br from-white to-primary/5 hover:from-primary/5 hover:to-primary/10">
+          {/* Custom menu icon with animation */}
+          <div className="relative flex flex-col items-center justify-center w-5 h-5">
+            <span className="block w-5 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:bg-primary/80 group-active:scale-110"></span>
+            <span className="block w-4 h-0.5 bg-primary/70 rounded-full mt-1 transition-all duration-300 group-hover:bg-primary group-hover:w-5 group-active:scale-110"></span>
+            <span className="block w-3 h-0.5 bg-primary/50 rounded-full mt-1 transition-all duration-300 group-hover:bg-primary group-hover:w-5 group-active:scale-110"></span>
+          </div>
+          
+          {/* Tooltip for better UX */}
+          <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap z-50">
+            Explore Menu
+          </div>
+          
+          {/* Subtle glow effect */}
+          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-primary/20 to-yellow-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm -z-10"></div>
+        </SidebarTrigger>
       </div>
       
       {/* Breadcrumb navigation */}
