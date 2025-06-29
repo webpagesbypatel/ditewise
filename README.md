@@ -1,7 +1,28 @@
 Ditewise - AI Meal Planner
  An intelligent AI-powered meal planner designed to assist patients suffering from chronic diseases and those looking to manage weight effectively. Ditewise provides personalized meal plans, progress tracking, and educational resources to support a healthier lifestyle.
+ 
+# **App Name**: DietWise
 
-Live Application: Ditewise Dashboard
+## Core Features:
+
+- Comprehensive Profile Builder: User-friendly interface for profile creation, capturing detailed health data (diseases, medications, allergies, preferences, lifestyle, anthropometrics, lab results).
+- AI Diet Plan Generator: AI-powered tool to generate personalized dietary recommendations, macro/micronutrient targets, and food suggestions based on the user's health profile. The AI tool considers various factors to produce the plan.
+- Personalized Meal Recommendations: Display tailored meal plans and recipes that adhere to the user's diet, including nutritional information.
+- Food Logging and Tracking: Allow users to log their meals and track their nutrient intake relative to personalized goals.
+- Progress Visualization: Visually display progress toward dietary and health goals, incorporating user biometric and symptom tracking data.
+- Educational Content Library: Provide access to reliable and understandable educational content about chronic diseases, nutrition, and healthy eating.
+- Advanced Meal Planning Tools: Enable users to plan meals in advance, swap meals while maintaining compliance, and generate automated shopping lists.
+- Goal Setting and Reminders: Allow users to set specific health goals and receive reminders for meals, logging, and tracking.
+- Healthcare Provider View: Facilitate data sharing with healthcare providers (with consent) for clinical management and feedback.
+- Community Support: Community forum for users to share experiences, recipes, and support.
+- Wearable Integration: Integration with wearable devices to automatically track activity levels and sleep patterns.
+- AI Chatbot Assistant: AI-powered chatbot to answer user questions related to diet plans and nutrition. This tool will use reasoning to decide when or if to incorporate some piece of information in its output.
+- Nutrient Deficiency Analyzer: AI-driven analysis of user food logs to identify potential nutritional deficiencies or excesses and suggest adjustments to the diet plan.
+- Smart Ingredient Swapper: AI tool that suggests alternative ingredients based on user preferences, allergies, or availability, ensuring diet plan adherence.
+- Glucose Response Prediction: AI powered tool to predict blood glucose response to meals based on user's logged data and suggest adjustments to meal composition or timing.
+
+ 
+Live Application:[ Ditewise Dashboard](https://ditewise.netlify.app/diet-plan)
 
 📖 Table of Contents
 About The Project
