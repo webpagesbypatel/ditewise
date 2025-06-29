@@ -26,9 +26,9 @@ export function AppHeader() {
   });
 
   return (
-    <header className="sticky top-0 z-30 flex h-14 sm:h-16 items-center gap-3 sm:gap-4 border-b border-gray-200 bg-white/95 backdrop-blur-md px-4 sm:px-6 shadow-sm">
+    <header className="sticky top-0 z-30 flex h-14 sm:h-16 items-center justify-between gap-3 sm:gap-4 border-b border-gray-200 bg-white/95 backdrop-blur-md px-4 sm:px-6 shadow-sm">
       {/* Premium Enhanced 3-dot menu with advanced animations */}
-      <div className="lg:hidden">
+      <div className="lg:hidden flex-shrink-0">
         <SidebarTrigger asChild>
           <button className="relative group overflow-hidden h-12 w-12 rounded-2xl border-2 border-primary/30 shadow-lg hover:shadow-xl bg-gradient-to-br from-white via-primary/5 to-primary/10 hover:from-primary/10 hover:via-primary/15 hover:to-primary/20 active:from-primary/20 active:via-primary/25 active:to-primary/30 transition-all duration-500 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-primary/20 focus:ring-offset-2">
             {/* Animated background gradient */}
@@ -66,12 +66,12 @@ export function AppHeader() {
         </SidebarTrigger>
       </div>
       
-      {/* Enhanced Centered Breadcrumb navigation */}
-      <div className="flex items-center justify-center gap-1 sm:gap-2 text-sm overflow-x-auto hide-scrollbar flex-1 min-w-0">
-        <div className="flex items-center gap-1 sm:gap-2 mx-auto bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 shadow-sm border border-gray-200/50">
+      {/* Enhanced Centered Breadcrumb navigation with proper alignment */}
+      <div className="flex items-center justify-center flex-1 min-w-0">
+        <div className="flex items-center gap-1 sm:gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 shadow-sm border border-gray-200/50">
           <Link 
             href="/dashboard" 
-            className="text-gray-600 hover:text-primary transition-all duration-300 font-medium whitespace-nowrap flex-shrink-0 px-3 py-1.5 rounded-full hover:bg-primary/10 hover:shadow-sm"
+            className="text-gray-800 hover:text-primary transition-all duration-300 font-bold whitespace-nowrap flex-shrink-0 px-3 py-1.5 rounded-full hover:bg-primary/10 hover:shadow-sm text-sm sm:text-base"
           >
             Dashboard
           </Link>
@@ -83,10 +83,10 @@ export function AppHeader() {
                   <Link 
                     href={crumb.href} 
                     className={cn(
-                      "truncate transition-all duration-300 whitespace-nowrap px-3 py-1.5 rounded-full hover:shadow-sm", 
+                      "truncate transition-all duration-300 whitespace-nowrap px-3 py-1.5 rounded-full hover:shadow-sm font-bold text-sm sm:text-base", 
                       index === breadcrumbs.length - 1 
-                        ? "text-primary font-semibold bg-gradient-to-r from-primary/15 to-yellow-500/15 shadow-sm border border-primary/20" 
-                        : "text-gray-600 hover:text-primary hover:bg-primary/10"
+                        ? "text-primary bg-gradient-to-r from-primary/15 to-yellow-500/15 shadow-sm border border-primary/20" 
+                        : "text-gray-800 hover:text-primary hover:bg-primary/10"
                     )}
                   >
                     {crumb.label}
@@ -99,10 +99,10 @@ export function AppHeader() {
                   <Link 
                     href={crumb.href} 
                     className={cn(
-                      "truncate transition-all duration-300 whitespace-nowrap px-3 py-1.5 rounded-full hover:shadow-sm", 
+                      "truncate transition-all duration-300 whitespace-nowrap px-3 py-1.5 rounded-full hover:shadow-sm font-bold text-sm sm:text-base", 
                       index === breadcrumbs.length - 1 
-                        ? "text-primary font-semibold bg-gradient-to-r from-primary/15 to-yellow-500/15 shadow-sm border border-primary/20" 
-                        : "text-gray-600 hover:text-primary hover:bg-primary/10"
+                        ? "text-primary bg-gradient-to-r from-primary/15 to-yellow-500/15 shadow-sm border border-primary/20" 
+                        : "text-gray-800 hover:text-primary hover:bg-primary/10"
                     )}
                   >
                     {crumb.label}
@@ -113,6 +113,9 @@ export function AppHeader() {
           ))}
         </div>
       </div>
+
+      {/* Spacer for balance on desktop */}
+      <div className="hidden lg:block w-12 flex-shrink-0"></div>
     </header>
   )
 }
