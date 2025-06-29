@@ -40,6 +40,11 @@
     --sidebar-accent-foreground: 222.2 84% 4.9%;
     --sidebar-border: 214.3 31.8% 91.4%;
     --sidebar-ring: 47 96% 53%;
+
+    /* Header height variables for different screen sizes */
+    --header-height-mobile: 3.5rem; /* 56px */
+    --header-height-tablet: 4rem; /* 64px */
+    --header-height-desktop: 4.5rem; /* 72px */
   }
 }
 
@@ -65,6 +70,23 @@
   /* Mobile-first tap targets */
   button, a, [role="button"] {
     @apply min-h-[44px] min-w-[44px];
+  }
+
+  /* Responsive header heights */
+  .header-height {
+    height: var(--header-height-mobile);
+  }
+
+  @media (min-width: 640px) {
+    .header-height {
+      height: var(--header-height-tablet);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .header-height {
+      height: var(--header-height-desktop);
+    }
   }
 }
 
@@ -120,19 +142,21 @@
   
   /* Touch-friendly spacing */
   .touch-spacing {
-    @apply p-4;
+    @apply p-3 sm:p-4 lg:p-6;
   }
   
-  @media (min-width: 768px) {
-    .touch-spacing {
-      @apply p-6;
-    }
+  /* Enhanced responsive spacing */
+  .responsive-padding {
+    @apply px-3 py-2 sm:px-4 sm:py-3 lg:px-6 lg:py-4;
   }
   
-  @media (min-width: 1024px) {
-    .touch-spacing {
-      @apply p-8;
-    }
+  .responsive-margin {
+    @apply m-2 sm:m-4 lg:m-6;
+  }
+  
+  /* Responsive text truncation */
+  .truncate-mobile {
+    @apply truncate max-w-[100px] sm:max-w-[150px] lg:max-w-none;
   }
 }
 
@@ -171,17 +195,17 @@
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
   background: hsl(var(--muted));
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb {
   background: hsl(var(--primary));
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -189,10 +213,10 @@
 }
 
 /* Mobile-first responsive breakpoints */
-@media (max-width: 767px) {
+@media (max-width: 639px) {
   /* Mobile styles */
   .container {
-    @apply px-4;
+    @apply px-3;
   }
   
   .grid-responsive {
@@ -204,7 +228,7 @@
   }
   
   .heading-responsive {
-    @apply text-xl;
+    @apply text-lg;
   }
   
   .card-mobile {
@@ -212,7 +236,7 @@
   }
   
   .button-mobile {
-    @apply w-full py-3 text-base;
+    @apply w-full py-3 text-sm;
   }
   
   .form-mobile input,
@@ -224,12 +248,21 @@
   .nav-mobile {
     @apply fixed inset-0 z-50 bg-white;
   }
+
+  /* Header specific mobile styles */
+  .header-mobile {
+    @apply h-14 px-3;
+  }
+
+  .breadcrumb-mobile {
+    @apply text-xs px-2 py-1;
+  }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 640px) and (max-width: 1023px) {
   /* Tablet styles */
   .container {
-    @apply px-6;
+    @apply px-4;
   }
   
   .grid-responsive {
@@ -241,14 +274,22 @@
   }
   
   .heading-responsive {
-    @apply text-2xl;
+    @apply text-xl;
+  }
+
+  .header-tablet {
+    @apply h-16 px-4;
+  }
+
+  .breadcrumb-tablet {
+    @apply text-sm px-3 py-2;
   }
 }
 
 @media (min-width: 1024px) {
   /* Desktop styles */
   .container {
-    @apply px-8 max-w-7xl mx-auto;
+    @apply px-6 max-w-7xl mx-auto;
   }
   
   .grid-responsive {
@@ -260,7 +301,15 @@
   }
   
   .heading-responsive {
-    @apply text-3xl;
+    @apply text-2xl;
+  }
+
+  .header-desktop {
+    @apply h-18 px-6;
+  }
+
+  .breadcrumb-desktop {
+    @apply text-base px-4 py-3;
   }
 }
 
@@ -269,42 +318,42 @@
   @apply text-sm leading-relaxed;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .responsive-text {
     @apply text-base;
   }
 }
 
 .responsive-heading {
-  @apply text-xl font-bold leading-tight;
+  @apply text-lg font-bold leading-tight;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
+  .responsive-heading {
+    @apply text-xl;
+  }
+}
+
+@media (min-width: 1024px) {
   .responsive-heading {
     @apply text-2xl;
   }
 }
 
-@media (min-width: 1024px) {
-  .responsive-heading {
-    @apply text-3xl;
-  }
-}
-
 /* Responsive spacing */
 .responsive-spacing {
-  @apply space-y-4;
+  @apply space-y-3;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .responsive-spacing {
-    @apply space-y-6;
+    @apply space-y-4;
   }
 }
 
 @media (min-width: 1024px) {
   .responsive-spacing {
-    @apply space-y-8;
+    @apply space-y-6;
   }
 }
 
@@ -332,7 +381,7 @@
   @apply w-full px-3 py-2 text-base border border-gray-300 rounded-lg;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .form-responsive input,
   .form-responsive textarea,
   .form-responsive select {
@@ -345,7 +394,7 @@
   @apply w-full rounded-lg shadow-sm border border-gray-200 bg-white;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .card-responsive {
     @apply shadow-md;
   }
@@ -359,17 +408,17 @@
 
 /* Responsive buttons */
 .button-responsive {
-  @apply w-full py-3 px-4 text-base font-medium rounded-lg transition-all duration-300;
+  @apply w-full py-3 px-4 text-sm font-medium rounded-lg transition-all duration-300;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .button-responsive {
     @apply w-auto py-2 px-6 text-sm;
   }
 }
 
 /* Hide scrollbar on mobile for better UX */
-@media (max-width: 767px) {
+@media (max-width: 639px) {
   .hide-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -377,5 +426,48 @@
   
   .hide-scrollbar::-webkit-scrollbar {
     display: none;
+  }
+}
+
+/* Enhanced header animations */
+.header-animate {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header-animate:hover {
+  transform: translateY(-1px);
+}
+
+/* Breadcrumb responsive styles */
+.breadcrumb-responsive {
+  @apply flex items-center gap-1 overflow-hidden;
+}
+
+@media (min-width: 640px) {
+  .breadcrumb-responsive {
+    @apply gap-2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .breadcrumb-responsive {
+    @apply gap-3;
+  }
+}
+
+/* Action button responsive styles */
+.action-button-responsive {
+  @apply h-8 w-8 rounded-lg;
+}
+
+@media (min-width: 640px) {
+  .action-button-responsive {
+    @apply h-9 w-9 rounded-xl;
+  }
+}
+
+@media (min-width: 1024px) {
+  .action-button-responsive {
+    @apply h-10 w-10;
   }
 }
