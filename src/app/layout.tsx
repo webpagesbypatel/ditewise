@@ -36,8 +36,8 @@ export default function RootLayout({
         >
           <SidebarProvider defaultOpen={true}>
             {children}
-            <Toaster />
           </SidebarProvider>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
