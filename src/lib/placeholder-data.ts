@@ -4,7 +4,7 @@ export const enhancedPlaceholderMeals = [
     id: "1", 
     name: "Grilled Salmon Salad", 
     description: "Nutrient-packed salad with omega-3 rich salmon, mixed greens, and avocado.", 
-    imageUrl: "https://images.unsplash.com/photo-1606756790138-261d2b21cd75?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxnZWlsbGVkJTIwc2FsbW9uJTIwcmVjaXBpZXxlbnwwfHx8fDE3NDc5MDY3MDJ8MA&ixlib=rb-4.1.0&q=80&w=400", 
+    imageUrl: "https://media.istockphoto.com/id/1623063260/photo/chicken-gyros-with-vegetables-french-fries-and-tzatziki-sauce-closeup-on-the-board-on-the.jpg?s=612x612&w=0&k=20&c=b03FYvrqB6srS_RFiyKY2yx-Bnb8uW58DhbBb6C1C_g=", 
     imageHint: "salmon salad", 
     calories: 450, 
     protein: 35, 
