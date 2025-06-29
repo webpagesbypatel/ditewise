@@ -26,52 +26,48 @@ export function AppHeader() {
   });
 
   return (
-    <header className="sticky top-0 z-30 flex h-14 sm:h-16 items-center justify-between gap-3 sm:gap-4 border-b border-gray-200 bg-white/95 backdrop-blur-md px-4 sm:px-6 shadow-sm">
-      {/* Premium Enhanced 3-dot menu with advanced animations */}
+    <header className="sticky top-0 z-30 flex h-16 items-center justify-between gap-4 border-b border-gray-200 bg-white/95 backdrop-blur-md px-6 shadow-sm">
+      {/* Enhanced 3-dot menu with perfect alignment and scaling */}
       <div className="lg:hidden flex-shrink-0">
         <SidebarTrigger asChild>
-          <button className="relative group overflow-hidden h-12 w-12 rounded-2xl border-2 border-primary/30 shadow-lg hover:shadow-xl bg-gradient-to-br from-white via-primary/5 to-primary/10 hover:from-primary/10 hover:via-primary/15 hover:to-primary/20 active:from-primary/20 active:via-primary/25 active:to-primary/30 transition-all duration-500 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-primary/20 focus:ring-offset-2">
-            {/* Animated background gradient */}
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-yellow-400/20 to-orange-400/20 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-2xl blur-sm group-active:opacity-75"></div>
+          <button className="relative group overflow-hidden h-12 w-12 rounded-2xl border-2 border-primary/20 shadow-md hover:shadow-lg bg-gradient-to-br from-white via-primary/5 to-primary/10 hover:from-primary/10 hover:via-primary/15 hover:to-primary/20 active:from-primary/20 active:via-primary/25 active:to-primary/30 transition-all duration-300 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:ring-offset-2">
             
-            {/* Ripple effect container */}
-            <div className="absolute inset-0 rounded-2xl overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-yellow-400/30 scale-0 group-active:scale-150 transition-transform duration-300 ease-out rounded-full opacity-50"></div>
+            {/* Perfectly centered animated background gradient */}
+            <div className="absolute inset-1 bg-gradient-to-r from-primary/10 via-yellow-400/10 to-orange-400/10 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-xl blur-sm group-active:opacity-75"></div>
+            
+            {/* Centered ripple effect container */}
+            <div className="absolute inset-1 rounded-xl overflow-hidden flex items-center justify-center">
+              <div className="w-8 h-8 bg-gradient-to-r from-primary/20 to-yellow-400/20 scale-0 group-active:scale-150 transition-transform duration-200 ease-out rounded-full opacity-60"></div>
             </div>
             
-            {/* Enhanced 3-dot icon with staggered animations */}
-            <div className="relative flex flex-col items-center justify-center w-6 h-6 gap-1.5 z-10">
-              <span className="block w-2 h-2 bg-gradient-to-r from-primary to-yellow-500 rounded-full transition-all duration-300 ease-out group-hover:w-2.5 group-hover:h-2.5 group-hover:shadow-lg group-hover:shadow-primary/30 group-active:scale-125 transform group-hover:rotate-12 group-hover:-translate-x-0.5"></span>
-              <span className="block w-2 h-2 bg-gradient-to-r from-primary to-yellow-500 rounded-full transition-all duration-300 ease-out delay-75 group-hover:w-2.5 group-hover:h-2.5 group-hover:shadow-lg group-hover:shadow-primary/30 group-active:scale-125 transform group-hover:scale-110"></span>
-              <span className="block w-2 h-2 bg-gradient-to-r from-primary to-yellow-500 rounded-full transition-all duration-300 ease-out delay-150 group-hover:w-2.5 group-hover:h-2.5 group-hover:shadow-lg group-hover:shadow-primary/30 group-active:scale-125 transform group-hover:-rotate-12 group-hover:translate-x-0.5"></span>
+            {/* Perfectly centered 3-dot icon with proper spacing */}
+            <div className="relative flex flex-col items-center justify-center w-full h-full gap-1 z-10">
+              <span className="block w-1.5 h-1.5 bg-gradient-to-r from-primary to-yellow-500 rounded-full transition-all duration-200 ease-out group-hover:w-2 group-hover:h-2 group-hover:shadow-sm group-hover:shadow-primary/20 group-active:scale-110 transform group-hover:rotate-6"></span>
+              <span className="block w-1.5 h-1.5 bg-gradient-to-r from-primary to-yellow-500 rounded-full transition-all duration-200 ease-out delay-50 group-hover:w-2 group-hover:h-2 group-hover:shadow-sm group-hover:shadow-primary/20 group-active:scale-110"></span>
+              <span className="block w-1.5 h-1.5 bg-gradient-to-r from-primary to-yellow-500 rounded-full transition-all duration-200 ease-out delay-100 group-hover:w-2 group-hover:h-2 group-hover:shadow-sm group-hover:shadow-primary/20 group-active:scale-110 transform group-hover:-rotate-6"></span>
             </div>
             
-            {/* Premium floating tooltip */}
-            <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 bg-gray-900/95 backdrop-blur-sm text-white text-xs font-medium px-4 py-2 rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-50 shadow-2xl border border-gray-700/50">
-              Open Menu
-              <div className="absolute -top-1.5 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-gray-900/95 rotate-45 border-l border-t border-gray-700/50"></div>
+            {/* Centered tooltip */}
+            <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-gray-900/90 backdrop-blur-sm text-white text-xs font-medium px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none whitespace-nowrap z-50 shadow-lg">
+              Menu
+              <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-900/90 rotate-45"></div>
             </div>
             
-            {/* Ambient glow effect */}
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/40 via-yellow-400/40 to-orange-400/40 opacity-0 group-hover:opacity-100 transition-all duration-500 blur-xl -z-10 group-active:opacity-75 scale-150"></div>
+            {/* Centered ambient glow effect */}
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/20 via-yellow-400/20 to-orange-400/20 opacity-0 group-hover:opacity-60 transition-all duration-300 blur-md -z-10 scale-110"></div>
             
-            {/* Border highlight animation */}
-            <div className="absolute inset-0 rounded-2xl border-2 border-transparent bg-gradient-to-r from-primary via-yellow-400 to-orange-400 opacity-0 group-hover:opacity-100 transition-all duration-500 -z-10">
-              <div className="absolute inset-0.5 rounded-2xl bg-white"></div>
-            </div>
-            
-            {/* Pulse animation on focus */}
-            <div className="absolute inset-0 rounded-2xl bg-primary/20 scale-100 group-focus:animate-ping opacity-0 group-focus:opacity-75"></div>
+            {/* Centered focus pulse animation */}
+            <div className="absolute inset-2 rounded-xl bg-primary/15 scale-100 group-focus:animate-ping opacity-0 group-focus:opacity-100 duration-75"></div>
           </button>
         </SidebarTrigger>
       </div>
       
-      {/* Enhanced Centered Breadcrumb navigation with proper alignment */}
+      {/* Perfectly centered breadcrumb navigation */}
       <div className="flex items-center justify-center flex-1 min-w-0">
-        <div className="flex items-center gap-1 sm:gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 shadow-sm border border-gray-200/50">
+        <nav className="flex items-center gap-2 bg-white/90 backdrop-blur-sm rounded-full px-6 py-3 shadow-sm border border-gray-200/60 max-w-2xl">
           <Link 
             href="/dashboard" 
-            className="text-gray-800 hover:text-primary transition-all duration-300 font-bold whitespace-nowrap flex-shrink-0 px-3 py-1.5 rounded-full hover:bg-primary/10 hover:shadow-sm text-sm sm:text-base"
+            className="text-gray-800 hover:text-primary transition-all duration-200 font-bold whitespace-nowrap flex-shrink-0 px-4 py-2 rounded-full hover:bg-primary/8 hover:shadow-sm text-base"
           >
             Dashboard
           </Link>
@@ -79,14 +75,14 @@ export function AppHeader() {
             <React.Fragment key={crumb.href}>
               {index === 0 && pathSegments[0] !== 'dashboard' && (
                 <>
-                  <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4 text-gray-400 flex-shrink-0 transition-transform duration-300 group-hover:translate-x-0.5" />
+                  <ChevronRight className="h-4 w-4 text-gray-400 flex-shrink-0 transition-transform duration-200" />
                   <Link 
                     href={crumb.href} 
                     className={cn(
-                      "truncate transition-all duration-300 whitespace-nowrap px-3 py-1.5 rounded-full hover:shadow-sm font-bold text-sm sm:text-base", 
+                      "truncate transition-all duration-200 whitespace-nowrap px-4 py-2 rounded-full hover:shadow-sm font-bold text-base", 
                       index === breadcrumbs.length - 1 
-                        ? "text-primary bg-gradient-to-r from-primary/15 to-yellow-500/15 shadow-sm border border-primary/20" 
-                        : "text-gray-800 hover:text-primary hover:bg-primary/10"
+                        ? "text-primary bg-gradient-to-r from-primary/12 to-yellow-500/12 shadow-sm border border-primary/15" 
+                        : "text-gray-800 hover:text-primary hover:bg-primary/8"
                     )}
                   >
                     {crumb.label}
@@ -95,14 +91,14 @@ export function AppHeader() {
               )}
               {index > 0 && (
                 <>
-                  <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4 text-gray-400 flex-shrink-0 transition-transform duration-300 group-hover:translate-x-0.5" />
+                  <ChevronRight className="h-4 w-4 text-gray-400 flex-shrink-0 transition-transform duration-200" />
                   <Link 
                     href={crumb.href} 
                     className={cn(
-                      "truncate transition-all duration-300 whitespace-nowrap px-3 py-1.5 rounded-full hover:shadow-sm font-bold text-sm sm:text-base", 
+                      "truncate transition-all duration-200 whitespace-nowrap px-4 py-2 rounded-full hover:shadow-sm font-bold text-base", 
                       index === breadcrumbs.length - 1 
-                        ? "text-primary bg-gradient-to-r from-primary/15 to-yellow-500/15 shadow-sm border border-primary/20" 
-                        : "text-gray-800 hover:text-primary hover:bg-primary/10"
+                        ? "text-primary bg-gradient-to-r from-primary/12 to-yellow-500/12 shadow-sm border border-primary/15" 
+                        : "text-gray-800 hover:text-primary hover:bg-primary/8"
                     )}
                   >
                     {crumb.label}
@@ -111,10 +107,10 @@ export function AppHeader() {
               )}
             </React.Fragment>
           ))}
-        </div>
+        </nav>
       </div>
 
-      {/* Spacer for balance on desktop */}
+      {/* Spacer for perfect balance */}
       <div className="hidden lg:block w-12 flex-shrink-0"></div>
     </header>
   )
