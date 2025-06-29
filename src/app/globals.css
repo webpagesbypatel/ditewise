@@ -305,7 +305,8 @@
   }
 
   .header-desktop {
-    @apply h-18 px-6;
+    height: var(--header-height-desktop);
+    @apply px-6;
   }
 
   .breadcrumb-desktop {
