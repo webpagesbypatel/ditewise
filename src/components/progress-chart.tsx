@@ -44,19 +44,19 @@ const chartConfigCalories: ChartConfig = {
 
 export function ProgressChart() {
   return (
-    <div className="grid md:grid-cols-2 gap-6">
-      <Card className="shadow-lg">
-        <CardHeader>
-          <CardTitle>Weight Progress</CardTitle>
-          <CardDescription>Your weight trend over the last 6 months.</CardDescription>
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+      <Card className="card-responsive">
+        <CardHeader className="touch-spacing">
+          <CardTitle className="responsive-text">Weight Progress</CardTitle>
+          <CardDescription className="text-sm">Your weight trend over the last 6 months.</CardDescription>
         </CardHeader>
-        <CardContent>
-          <ChartContainer config={chartConfigWeight} className="h-[300px] w-full">
+        <CardContent className="touch-spacing pt-0">
+          <ChartContainer config={chartConfigWeight} className="h-[250px] sm:h-[300px] w-full">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={weightData} margin={{ top: 5, right: 20, left: -20, bottom: 5 }}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
-                <XAxis dataKey="date" tickLine={false} axisLine={false} />
-                <YAxis unit="kg" tickLine={false} axisLine={false} />
+                <XAxis dataKey="date" tickLine={false} axisLine={false} fontSize={12} />
+                <YAxis unit="kg" tickLine={false} axisLine={false} fontSize={12} />
                 <Tooltip content={<ChartTooltipContent />} />
                 <Legend />
                 <Bar dataKey="weight" fill="var(--color-weight)" radius={[4, 4, 0, 0]} />
@@ -66,18 +66,18 @@ export function ProgressChart() {
         </CardContent>
       </Card>
 
-      <Card className="shadow-lg">
-        <CardHeader>
-          <CardTitle>Weekly Calorie Intake</CardTitle>
-          <CardDescription>Your calorie intake vs. target for the past week.</CardDescription>
+      <Card className="card-responsive">
+        <CardHeader className="touch-spacing">
+          <CardTitle className="responsive-text">Weekly Calorie Intake</CardTitle>
+          <CardDescription className="text-sm">Your calorie intake vs. target for the past week.</CardDescription>
         </CardHeader>
-        <CardContent>
-          <ChartContainer config={chartConfigCalories} className="h-[300px] w-full">
+        <CardContent className="touch-spacing pt-0">
+          <ChartContainer config={chartConfigCalories} className="h-[250px] sm:h-[300px] w-full">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={calorieData} margin={{ top: 5, right: 20, left: -20, bottom: 5 }}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
-                <XAxis dataKey="day" tickLine={false} axisLine={false} />
-                <YAxis unit="kcal" tickLine={false} axisLine={false} />
+                <XAxis dataKey="day" tickLine={false} axisLine={false} fontSize={12} />
+                <YAxis unit="kcal" tickLine={false} axisLine={false} fontSize={12} />
                 <Tooltip content={<ChartTooltipContent />} />
                 <Legend />
                 <Bar dataKey="intake" fill="var(--color-intake)" radius={[4, 4, 0, 0]} />

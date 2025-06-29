@@ -2,11 +2,11 @@ import Image from "next/image";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "./ui/button";
-import { Apple, Flame, Soup } from "lucide-react"; // Example icons
+import { Apple, Flame, Soup } from "lucide-react";
 
 interface MealCardProps {
   meal: {
-    id: string; // Added id to meal object for key prop
+    id: string;
     name: string;
     description: string;
     imageUrl: string;
@@ -22,35 +22,37 @@ interface MealCardProps {
 
 export function MealCard({ meal }: MealCardProps) {
   return (
-    <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+    <Card className="card-responsive hover:shadow-xl transition-all duration-300 overflow-hidden">
       <CardHeader className="p-0">
         <Image
           src={meal.imageUrl}
           alt={meal.name}
           width={400}
           height={200}
-          className="w-full h-48 object-cover"
+          className="w-full h-40 sm:h-48 object-cover"
           data-ai-hint={meal.imageHint || "food meal"}
         />
       </CardHeader>
-      <CardContent className="p-4 space-y-2">
-        <div className="flex justify-between items-start">
-            <CardTitle className="text-xl font-semibold">{meal.name}</CardTitle>
-            <Badge variant="outline" className="capitalize">{meal.type}</Badge>
+      <CardContent className="touch-spacing space-y-3">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
+            <CardTitle className="responsive-text font-semibold">{meal.name}</CardTitle>
+            <Badge variant="outline" className="capitalize text-xs self-start">{meal.type}</Badge>
         </div>
-        <CardDescription className="text-sm text-muted-foreground min-h-[40px]">{meal.description}</CardDescription>
-        <div className="flex flex-wrap gap-2 pt-2">
-          {meal.tags?.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
+        <CardDescription className="text-sm text-muted-foreground leading-relaxed min-h-[40px]">{meal.description}</CardDescription>
+        <div className="flex flex-wrap gap-1 sm:gap-2">
+          {meal.tags?.map(tag => <Badge key={tag} variant="secondary" className="text-xs">{tag}</Badge>)}
         </div>
-        <div className="grid grid-cols-2 gap-2 text-sm pt-2">
-            <div className="flex items-center gap-1"><Flame className="w-4 h-4 text-primary"/> Calories: {meal.calories}kcal</div>
-            <div className="flex items-center gap-1"><Soup className="w-4 h-4 text-primary"/> Protein: {meal.protein}g</div>
-            <div className="flex items-center gap-1"><Apple className="w-4 h-4 text-primary"/> Carbs: {meal.carbs}g</div>
-            <div className="flex items-center gap-1"><Apple className="w-4 h-4 text-primary"/> Fat: {meal.fat}g</div>
+        <div className="grid grid-cols-2 gap-2 text-xs sm:text-sm">
+            <div className="flex items-center gap-1"><Flame className="w-3 h-3 sm:w-4 sm:h-4 text-primary"/> {meal.calories}kcal</div>
+            <div className="flex items-center gap-1"><Soup className="w-3 h-3 sm:w-4 sm:h-4 text-primary"/> {meal.protein}g protein</div>
+            <div className="flex items-center gap-1"><Apple className="w-3 h-3 sm:w-4 sm:h-4 text-primary"/> {meal.carbs}g carbs</div>
+            <div className="flex items-center gap-1"><Apple className="w-3 h-3 sm:w-4 sm:h-4 text-primary"/> {meal.fat}g fat</div>
         </div>
       </CardContent>
-      <CardFooter className="p-4">
-        <Button variant="outline" className="w-full">View Recipe</Button>
+      <CardFooter className="touch-spacing pt-0">
+        <Button variant="outline" className="button-responsive border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300">
+          View Recipe
+        </Button>
       </CardFooter>
     </Card>
   );

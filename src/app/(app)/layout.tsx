@@ -13,9 +13,11 @@ export default function AppLayout({
       <AppSidebar />
       <SidebarInset>
         <AppHeader />
-        <main className="flex-1 p-4 md:p-6">
-          <ScrollArea className="h-[calc(100vh-var(--header-height)-2rem)]"> {/* Adjust height as needed */}
-             {children}
+        <main className="flex-1 p-4 md:p-6 lg:p-8">
+          <ScrollArea className="h-[calc(100vh-var(--header-height)-2rem)] hide-scrollbar">
+            <div className="container mx-auto max-w-none">
+              {children}
+            </div>
           </ScrollArea>
         </main>
       </SidebarInset>

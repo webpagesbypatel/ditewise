@@ -51,6 +51,21 @@
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+  
+  /* Mobile-first responsive images */
+  img {
+    @apply max-w-full h-auto;
+  }
+  
+  /* Mobile-first responsive tables */
+  .table-container {
+    @apply overflow-x-auto;
+  }
+  
+  /* Mobile-first tap targets */
+  button, a, [role="button"] {
+    @apply min-h-[44px] min-w-[44px];
+  }
 }
 
 /* Enhanced animations and effects */
@@ -86,6 +101,38 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+  
+  /* Mobile-first responsive utilities */
+  .mobile-full {
+    @apply w-full;
+  }
+  
+  .mobile-stack {
+    @apply flex flex-col space-y-4;
+  }
+  
+  @media (min-width: 768px) {
+    .mobile-stack {
+      @apply flex-row space-y-0 space-x-4;
+    }
+  }
+  
+  /* Touch-friendly spacing */
+  .touch-spacing {
+    @apply p-4;
+  }
+  
+  @media (min-width: 768px) {
+    .touch-spacing {
+      @apply p-6;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .touch-spacing {
+      @apply p-8;
+    }
   }
 }
 
@@ -139,4 +186,196 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--primary) / 0.8);
+}
+
+/* Mobile-first responsive breakpoints */
+@media (max-width: 767px) {
+  /* Mobile styles */
+  .container {
+    @apply px-4;
+  }
+  
+  .grid-responsive {
+    @apply grid-cols-1;
+  }
+  
+  .text-responsive {
+    @apply text-sm;
+  }
+  
+  .heading-responsive {
+    @apply text-xl;
+  }
+  
+  .card-mobile {
+    @apply rounded-lg shadow-sm;
+  }
+  
+  .button-mobile {
+    @apply w-full py-3 text-base;
+  }
+  
+  .form-mobile input,
+  .form-mobile textarea,
+  .form-mobile select {
+    @apply w-full text-base py-3;
+  }
+  
+  .nav-mobile {
+    @apply fixed inset-0 z-50 bg-white;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Tablet styles */
+  .container {
+    @apply px-6;
+  }
+  
+  .grid-responsive {
+    @apply grid-cols-2;
+  }
+  
+  .text-responsive {
+    @apply text-base;
+  }
+  
+  .heading-responsive {
+    @apply text-2xl;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Desktop styles */
+  .container {
+    @apply px-8 max-w-7xl mx-auto;
+  }
+  
+  .grid-responsive {
+    @apply grid-cols-3;
+  }
+  
+  .text-responsive {
+    @apply text-base;
+  }
+  
+  .heading-responsive {
+    @apply text-3xl;
+  }
+}
+
+/* Responsive typography */
+.responsive-text {
+  @apply text-sm leading-relaxed;
+}
+
+@media (min-width: 768px) {
+  .responsive-text {
+    @apply text-base;
+  }
+}
+
+.responsive-heading {
+  @apply text-xl font-bold leading-tight;
+}
+
+@media (min-width: 768px) {
+  .responsive-heading {
+    @apply text-2xl;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-heading {
+    @apply text-3xl;
+  }
+}
+
+/* Responsive spacing */
+.responsive-spacing {
+  @apply space-y-4;
+}
+
+@media (min-width: 768px) {
+  .responsive-spacing {
+    @apply space-y-6;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-spacing {
+    @apply space-y-8;
+  }
+}
+
+/* Mobile navigation overlay */
+.mobile-nav-overlay {
+  @apply fixed inset-0 z-40 bg-black bg-opacity-50 transition-opacity;
+}
+
+.mobile-nav-panel {
+  @apply fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-xl transform transition-transform;
+}
+
+.mobile-nav-panel.closed {
+  @apply -translate-x-full;
+}
+
+.mobile-nav-panel.open {
+  @apply translate-x-0;
+}
+
+/* Responsive form elements */
+.form-responsive input,
+.form-responsive textarea,
+.form-responsive select {
+  @apply w-full px-3 py-2 text-base border border-gray-300 rounded-lg;
+}
+
+@media (min-width: 768px) {
+  .form-responsive input,
+  .form-responsive textarea,
+  .form-responsive select {
+    @apply text-sm py-2;
+  }
+}
+
+/* Responsive cards */
+.card-responsive {
+  @apply w-full rounded-lg shadow-sm border border-gray-200 bg-white;
+}
+
+@media (min-width: 768px) {
+  .card-responsive {
+    @apply shadow-md;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-responsive {
+    @apply shadow-lg;
+  }
+}
+
+/* Responsive buttons */
+.button-responsive {
+  @apply w-full py-3 px-4 text-base font-medium rounded-lg transition-all duration-300;
+}
+
+@media (min-width: 768px) {
+  .button-responsive {
+    @apply w-auto py-2 px-6 text-sm;
+  }
+}
+
+/* Hide scrollbar on mobile for better UX */
+@media (max-width: 767px) {
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 }

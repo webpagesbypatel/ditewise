@@ -16,7 +16,6 @@ const findLabel = (pathname: string) => {
 
 export function AppHeader() {
   const pathname = usePathname();
-  const currentLabel = findLabel(pathname);
 
   // Simple breadcrumb logic
   const pathSegments = pathname.split('/').filter(Boolean);
@@ -27,26 +26,50 @@ export function AppHeader() {
   });
 
   return (
-    <header className="sticky top-0 z-30 flex h-16 items-center gap-4 border-b border-gray-200 bg-white/80 backdrop-blur-sm px-4 shadow-sm sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6 sm:shadow-none">
-      <div className="md:hidden">
-        <SidebarTrigger className="hover:bg-primary/10 transition-colors duration-300" />
+    <header className="sticky top-0 z-30 flex h-14 sm:h-16 items-center gap-3 sm:gap-4 border-b border-gray-200 bg-white/90 backdrop-blur-sm px-4 sm:px-6 shadow-sm">
+      {/* Mobile hamburger menu */}
+      <div className="lg:hidden">
+        <SidebarTrigger className="hover:bg-primary/10 transition-colors duration-300 h-9 w-9" />
       </div>
-      <div className="flex items-center gap-2 text-sm">
-        <Link href="/dashboard" className="text-gray-600 hover:text-primary transition-colors duration-300 font-medium">Dashboard</Link>
+      
+      {/* Breadcrumb navigation */}
+      <div className="flex items-center gap-1 sm:gap-2 text-sm overflow-x-auto hide-scrollbar flex-1 min-w-0">
+        <Link 
+          href="/dashboard" 
+          className="text-gray-600 hover:text-primary transition-colors duration-300 font-medium whitespace-nowrap flex-shrink-0"
+        >
+          Dashboard
+        </Link>
         {breadcrumbs.map((crumb, index) => (
           <React.Fragment key={crumb.href}>
             {index === 0 && pathSegments[0] !== 'dashboard' && (
               <>
-                <ChevronRight className="h-4 w-4 text-gray-400" />
-                 <Link href={crumb.href} className={cn("truncate transition-colors duration-300", index === breadcrumbs.length -1 ? "text-primary font-semibold" : "text-gray-600 hover:text-primary")}>
+                <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4 text-gray-400 flex-shrink-0" />
+                <Link 
+                  href={crumb.href} 
+                  className={cn(
+                    "truncate transition-colors duration-300 whitespace-nowrap", 
+                    index === breadcrumbs.length - 1 
+                      ? "text-primary font-semibold" 
+                      : "text-gray-600 hover:text-primary"
+                  )}
+                >
                   {crumb.label}
                 </Link>
               </>
             )}
             {index > 0 && (
               <>
-                <ChevronRight className="h-4 w-4 text-gray-400" />
-                <Link href={crumb.href} className={cn("truncate transition-colors duration-300", index === breadcrumbs.length -1 ? "text-primary font-semibold" : "text-gray-600 hover:text-primary")}>
+                <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4 text-gray-400 flex-shrink-0" />
+                <Link 
+                  href={crumb.href} 
+                  className={cn(
+                    "truncate transition-colors duration-300 whitespace-nowrap", 
+                    index === breadcrumbs.length - 1 
+                      ? "text-primary font-semibold" 
+                      : "text-gray-600 hover:text-primary"
+                  )}
+                >
                   {crumb.label}
                 </Link>
               </>

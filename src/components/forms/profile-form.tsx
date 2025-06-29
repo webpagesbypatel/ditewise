@@ -20,7 +20,7 @@ import type { GenerateDietPlanInput } from "@/ai/flows/ai-diet-plan-generator"
 import { generateDietPlanAction } from "@/lib/actions"
 import { useState } from "react"
 import { useToast } from "@/hooks/use-toast"
-import type { DietPlan } from "@/types" // Assuming DietPlan type from actions.ts output
+import type { DietPlan } from "@/types"
 
 const profileFormSchema = z.object({
   diseases: z.string().min(1, { message: "Please list any known diseases or conditions." }),
@@ -54,9 +54,8 @@ export function ProfileForm() {
 
   async function onSubmit(data: ProfileFormValues) {
     setIsLoading(true);
-    setDietPlan(null); // Clear previous plan
+    setDietPlan(null);
     
-    // This action can also save the profile data to a DB in a real app
     const result = await generateDietPlanAction(data as GenerateDietPlanInput);
     setIsLoading(false);
 
@@ -72,8 +71,6 @@ export function ProfileForm() {
         title: "Profile Updated & Diet Plan Generated!",
         description: "Your personalized diet plan is ready below.",
       });
-      // Optionally, you can reset the form or navigate the user
-      // form.reset(); 
     }
   }
 
@@ -88,68 +85,70 @@ export function ProfileForm() {
   ];
 
   return (
-    <Card className="w-full max-w-2xl mx-auto shadow-xl">
-      <CardHeader>
-        <CardTitle>Your Health Profile</CardTitle>
-        <CardDescription>
-          Provide your health details to generate a personalized diet plan. 
-          This information helps our AI create the most suitable recommendations for you.
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-            {formFields.map((fieldInfo) => (
-              <FormField
-                key={fieldInfo.name}
-                control={form.control}
-                name={fieldInfo.name}
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>{fieldInfo.label}</FormLabel>
-                    <FormControl>
-                      {fieldInfo.type === 'textarea' ? (
-                        <Textarea placeholder={fieldInfo.placeholder} {...field} rows={3}/>
-                      ) : (
-                        <Input placeholder={fieldInfo.placeholder} {...field} />
-                      )}
-                    </FormControl>
-                    <FormDescription>
-                      {fieldInfo.description}
-                    </FormDescription>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            ))}
-            <Button type="submit" disabled={isLoading} className="w-full hover:animate-pulse-glow focus:animate-pulse-glow">
-              {isLoading ? "Generating Plan..." : "Save Profile & Generate Diet Plan"}
-            </Button>
-          </form>
-        </Form>
+    <div className="max-w-4xl mx-auto">
+      <Card className="card-responsive shadow-xl">
+        <CardHeader className="touch-spacing">
+          <CardTitle className="responsive-heading">Your Health Profile</CardTitle>
+          <CardDescription className="responsive-text">
+            Provide your health details to generate a personalized diet plan. 
+            This information helps our AI create the most suitable recommendations for you.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="touch-spacing">
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="responsive-spacing form-responsive">
+              {formFields.map((fieldInfo) => (
+                <FormField
+                  key={fieldInfo.name}
+                  control={form.control}
+                  name={fieldInfo.name}
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-sm sm:text-base font-medium">{fieldInfo.label}</FormLabel>
+                      <FormControl>
+                        {fieldInfo.type === 'textarea' ? (
+                          <Textarea placeholder={fieldInfo.placeholder} {...field} rows={3} className="resize-none"/>
+                        ) : (
+                          <Input placeholder={fieldInfo.placeholder} {...field} />
+                        )}
+                      </FormControl>
+                      <FormDescription className="text-xs sm:text-sm">
+                        {fieldInfo.description}
+                      </FormDescription>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              ))}
+              <Button type="submit" disabled={isLoading} className="button-responsive bg-gradient-to-r from-primary to-yellow-500 hover:from-yellow-500 hover:to-primary text-white font-medium shadow-md hover:shadow-lg transition-all duration-300">
+                {isLoading ? "Generating Plan..." : "Save Profile & Generate Diet Plan"}
+              </Button>
+            </form>
+          </Form>
 
-        {dietPlan && (
-          <Card className="mt-8 bg-secondary/50">
-            <CardHeader>
-              <CardTitle>Your Personalized Diet Plan</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div>
-                <h4 className="font-semibold text-lg">Dietary Recommendations:</h4>
-                <p className="text-sm text-muted-foreground whitespace-pre-wrap">{dietPlan.dietaryRecommendations}</p>
-              </div>
-              <div>
-                <h4 className="font-semibold text-lg">Macro Nutrient Targets:</h4>
-                <p className="text-sm text-muted-foreground whitespace-pre-wrap">{dietPlan.macroNutrientTargets}</p>
-              </div>
-              <div>
-                <h4 className="font-semibold text-lg">Food Suggestions:</h4>
-                <p className="text-sm text-muted-foreground whitespace-pre-wrap">{dietPlan.foodSuggestions}</p>
-              </div>
-            </CardContent>
-          </Card>
-        )}
-      </CardContent>
-    </Card>
+          {dietPlan && (
+            <Card className="mt-6 sm:mt-8 bg-secondary/50 card-responsive">
+              <CardHeader className="touch-spacing">
+                <CardTitle className="responsive-text">Your Personalized Diet Plan</CardTitle>
+              </CardHeader>
+              <CardContent className="touch-spacing responsive-spacing">
+                <div>
+                  <h4 className="font-semibold text-base sm:text-lg mb-2">Dietary Recommendations:</h4>
+                  <p className="text-sm text-muted-foreground whitespace-pre-wrap leading-relaxed">{dietPlan.dietaryRecommendations}</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-base sm:text-lg mb-2">Macro Nutrient Targets:</h4>
+                  <p className="text-sm text-muted-foreground whitespace-pre-wrap leading-relaxed">{dietPlan.macroNutrientTargets}</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-base sm:text-lg mb-2">Food Suggestions:</h4>
+                  <p className="text-sm text-muted-foreground whitespace-pre-wrap leading-relaxed">{dietPlan.foodSuggestions}</p>
+                </div>
+              </CardContent>
+            </Card>
+          )}
+        </CardContent>
+      </Card>
+    </div>
   )
 }
