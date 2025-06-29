@@ -273,17 +273,20 @@ const SidebarTrigger = React.forwardRef<
   }
 
   if (asChild && children) {
-    // When asChild is true, we need to clone the child and add our props to it
-    return React.cloneElement(
-      React.Children.only(children as React.ReactElement),
-      {
+    // Convert children to array and get the first element
+    const childrenArray = React.Children.toArray(children)
+    const firstChild = childrenArray[0]
+    
+    // Ensure the first child is a valid React element before cloning
+    if (React.isValidElement(firstChild)) {
+      return React.cloneElement(firstChild, {
         ref,
         "data-sidebar": "trigger",
         className: cn("h-7 w-7", className),
         onClick: handleClick,
         ...props,
-      }
-    )
+      })
+    }
   }
 
   return (
