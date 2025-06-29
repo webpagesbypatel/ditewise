@@ -53,50 +53,52 @@ export function AppHeader() {
         </button>
       </div>
       
-      {/* Breadcrumb navigation */}
-      <div className="flex items-center gap-1 sm:gap-2 text-sm overflow-x-auto hide-scrollbar flex-1 min-w-0">
-        <Link 
-          href="/dashboard" 
-          className="text-gray-600 hover:text-primary transition-colors duration-300 font-medium whitespace-nowrap flex-shrink-0"
-        >
-          Dashboard
-        </Link>
-        {breadcrumbs.map((crumb, index) => (
-          <React.Fragment key={crumb.href}>
-            {index === 0 && pathSegments[0] !== 'dashboard' && (
-              <>
-                <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4 text-gray-400 flex-shrink-0" />
-                <Link 
-                  href={crumb.href} 
-                  className={cn(
-                    "truncate transition-colors duration-300 whitespace-nowrap", 
-                    index === breadcrumbs.length - 1 
-                      ? "text-primary font-semibold" 
-                      : "text-gray-600 hover:text-primary"
-                  )}
-                >
-                  {crumb.label}
-                </Link>
-              </>
-            )}
-            {index > 0 && (
-              <>
-                <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4 text-gray-400 flex-shrink-0" />
-                <Link 
-                  href={crumb.href} 
-                  className={cn(
-                    "truncate transition-colors duration-300 whitespace-nowrap", 
-                    index === breadcrumbs.length - 1 
-                      ? "text-primary font-semibold" 
-                      : "text-gray-600 hover:text-primary"
-                  )}
-                >
-                  {crumb.label}
-                </Link>
-              </>
-            )}
-          </React.Fragment>
-        ))}
+      {/* Centered Breadcrumb navigation container */}
+      <div className="flex items-center justify-center gap-1 sm:gap-2 text-sm overflow-x-auto hide-scrollbar flex-1 min-w-0">
+        <div className="flex items-center gap-1 sm:gap-2 mx-auto">
+          <Link 
+            href="/dashboard" 
+            className="text-gray-600 hover:text-primary transition-colors duration-300 font-medium whitespace-nowrap flex-shrink-0 px-2 py-1 rounded-md hover:bg-primary/5"
+          >
+            Dashboard
+          </Link>
+          {breadcrumbs.map((crumb, index) => (
+            <React.Fragment key={crumb.href}>
+              {index === 0 && pathSegments[0] !== 'dashboard' && (
+                <>
+                  <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4 text-gray-400 flex-shrink-0" />
+                  <Link 
+                    href={crumb.href} 
+                    className={cn(
+                      "truncate transition-colors duration-300 whitespace-nowrap px-2 py-1 rounded-md hover:bg-primary/5", 
+                      index === breadcrumbs.length - 1 
+                        ? "text-primary font-semibold bg-primary/10" 
+                        : "text-gray-600 hover:text-primary"
+                    )}
+                  >
+                    {crumb.label}
+                  </Link>
+                </>
+              )}
+              {index > 0 && (
+                <>
+                  <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4 text-gray-400 flex-shrink-0" />
+                  <Link 
+                    href={crumb.href} 
+                    className={cn(
+                      "truncate transition-colors duration-300 whitespace-nowrap px-2 py-1 rounded-md hover:bg-primary/5", 
+                      index === breadcrumbs.length - 1 
+                        ? "text-primary font-semibold bg-primary/10" 
+                        : "text-gray-600 hover:text-primary"
+                    )}
+                  >
+                    {crumb.label}
+                  </Link>
+                </>
+              )}
+            </React.Fragment>
+          ))}
+        </div>
       </div>
     </header>
   )
