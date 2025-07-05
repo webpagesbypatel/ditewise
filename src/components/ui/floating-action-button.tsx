@@ -25,13 +25,13 @@ export function FloatingActionButton({
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
       transition={{ type: "spring", stiffness: 400, damping: 17 }}
-      className="fixed bottom-6 right-6 z-50"
+      className="fixed bottom-8 right-8 z-50"
     >
       <Button
         onClick={onClick}
         size="lg"
         className={cn(
-          "h-14 w-14 rounded-full shadow-lg hover:shadow-xl bg-gradient-to-r from-primary to-yellow-500 hover:from-yellow-500 hover:to-primary text-white border-0 transition-all duration-300",
+          "fab-luxury h-16 w-16 rounded-full shadow-luxury hover:shadow-luxury-hover text-white border-0 transition-all duration-300",
           className
         )}
       >
