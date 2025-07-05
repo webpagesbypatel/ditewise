@@ -48,6 +48,7 @@ export default {
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',
+        white: 'hsl(0 0% 100%)',
         gold: 'hsl(var(--gold))',
         'rose-gold': 'hsl(var(--rose-gold))',
         platinum: 'hsl(var(--platinum))',
