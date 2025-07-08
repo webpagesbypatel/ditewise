@@ -99,7 +99,7 @@ Clone the repo
 
 bash
 Copy
-git clone [https://github.com/your_username/your_repository.git](https://github.com/webpagesbypatel/ditewise/tree/main)
+git clone [https://github.com/webpagesbypatel/dietwise.git](https://github.com/webpagesbypatel/ditewise/tree/main)
 Navigate to the project directory
 
 bash
